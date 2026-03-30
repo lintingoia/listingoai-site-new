@@ -16,18 +16,19 @@
       color: #1f2937;
     }
 
-   header {
-  background: linear-gradient(135deg, #041e42 0%, #0a2c63 100%);
-  color: white;
-  /* Increased top and bottom padding to give the hero more breathing room */
-  padding: 100px 20px 100px;
-  text-align: center;
-  /* Extend the header height to allow the form to fall below the fold on larger screens */
-  min-height: 120vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+    /* Removed scroll-behavior override to return to default browser behavior */
+
+    header {
+      background: linear-gradient(135deg, #041e42 0%, #0a2c63 100%);
+      color: white;
+      /* Original padding: smaller top and bottom space */
+      padding: 80px 20px 70px;
+      text-align: center;
+      /* Original hero height: fits within the viewport */
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .hero-wrap {
@@ -84,8 +85,8 @@
     section {
       max-width: 1100px;
       margin: 0 auto;
-  /* Increase section padding to improve spacing between sections */
-  padding: 110px 20px;
+      /* Original section padding */
+      padding: 70px 20px;
     }
 
     .section-title {
@@ -307,6 +308,7 @@
       d.body.appendChild(s);
     })();
 
+
     async function sendMessage() {
       const input = document.getElementById("chatInput");
       const chatLog = document.getElementById("chatLog");
@@ -359,8 +361,4 @@
       }
 
       chatLog.scrollTop = chatLog.scrollHeight;
-    }
-  </script>
-
-</body>
-</html>
+    
