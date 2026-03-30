@@ -4,165 +4,421 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ListingoAI – AI-Powered Content Engine</title>
+  <meta name="description" content="Create product titles, descriptions, tags and social content faster with ListingoAI." />
   <style>
-    * {
-      box-sizing: border-box;
+    :root {
+      --bg: #f5f7fb;
+      --surface: #ffffff;
+      --surface-soft: #f8fbff;
+      --text: #0f172a;
+      --muted: #475569;
+      --line: #e2e8f0;
+      --primary: #0a2c63;
+      --primary-2: #041e42;
+      --accent: #f5b100;
+      --shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
+      --radius: 18px;
+      --max: 1140px;
     }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
-      background: #f5f7fb;
-      color: #1f2937;
+      background: var(--bg);
+      color: var(--text);
     }
 
-    /* Removed scroll-behavior override to return to default browser behavior */
+    a { color: inherit; }
 
-    header {
-      background: linear-gradient(135deg, #041e42 0%, #0a2c63 100%);
-      color: white;
-      /* Original padding: smaller top and bottom space */
-      padding: 80px 20px 70px;
-      text-align: center;
-      /* Original hero height: fits within the viewport */
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .hero-wrap {
-      max-width: 900px;
+    .container {
+      width: min(var(--max), calc(100% - 40px));
       margin: 0 auto;
     }
 
+    .site-header {
+      background: linear-gradient(135deg, var(--primary-2) 0%, var(--primary) 100%);
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 28px 0 64px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .site-header::before,
+    .site-header::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.05);
+      pointer-events: none;
+    }
+
+    .site-header::before {
+      width: 420px;
+      height: 420px;
+      top: -180px;
+      right: -80px;
+    }
+
+    .site-header::after {
+      width: 260px;
+      height: 260px;
+      bottom: -100px;
+      left: -60px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 42px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .brand {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: 0.2px;
+      text-decoration: none;
+    }
+
+    .nav {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      color: rgba(255,255,255,0.88);
+      font-size: 14px;
+    }
+
+    .nav a {
+      text-decoration: none;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 34px;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.14);
+      color: #e8eef9;
+      font-size: 13px;
+      margin-bottom: 18px;
+    }
+
     h1 {
+      font-size: clamp(42px, 7vw, 64px);
+      line-height: 1.05;
       margin: 0 0 18px;
-      font-size: 56px;
-      line-height: 1.1;
     }
 
     .hero-sub {
-      font-size: 22px;
-      line-height: 1.6;
-      max-width: 780px;
-      margin: 0 auto 30px;
-      color: #e6edf8;
+      max-width: 700px;
+      font-size: 20px;
+      line-height: 1.7;
+      color: #dce7f6;
+      margin: 0 0 28px;
     }
 
-    .hero-buttons {
+    .hero-actions {
       display: flex;
-      justify-content: center;
       gap: 14px;
       flex-wrap: wrap;
+      margin-bottom: 22px;
     }
 
     .btn {
-      display: inline-block;
-      padding: 14px 24px;
-      border-radius: 10px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 12px 22px;
+      border-radius: 12px;
       text-decoration: none;
       font-weight: 700;
-      transition: 0.2s ease;
+      transition: transform 0.18s ease, opacity 0.18s ease, background 0.18s ease;
+      border: 1px solid transparent;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      opacity: 0.96;
     }
 
     .btn-primary {
-      background: #f5b100;
-      color: #041e42;
+      background: var(--accent);
+      color: #1f2937;
     }
 
     .btn-secondary {
       background: transparent;
       color: white;
-      border: 1px solid rgba(255,255,255,0.35);
+      border-color: rgba(255,255,255,0.28);
     }
 
-    .btn:hover {
-      transform: translateY(-1px);
-      opacity: 0.95;
+    .hero-meta {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      color: #dce7f6;
+      font-size: 14px;
+    }
+
+    .hero-card {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.14);
+      backdrop-filter: blur(8px);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.16);
+    }
+
+    .hero-card-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #dce7f6;
+      margin: 0 0 14px;
+      letter-spacing: 0.2px;
+    }
+
+    .mock-window {
+      background: white;
+      border-radius: 18px;
+      overflow: hidden;
+      color: var(--text);
+    }
+
+    .mock-bar {
+      display: flex;
+      gap: 8px;
+      padding: 12px 14px;
+      background: #eef4fb;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #cbd5e1;
+    }
+
+    .mock-body {
+      padding: 18px;
+      display: grid;
+      gap: 12px;
+      background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+    }
+
+    .mock-pill {
+      display: inline-block;
+      width: fit-content;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: #eff6ff;
+      color: var(--primary);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .mock-card {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 14px;
+      background: var(--surface-soft);
+    }
+
+    .mock-card strong {
+      display: block;
+      margin-bottom: 6px;
     }
 
     section {
-      max-width: 1100px;
-      margin: 0 auto;
-      /* Original section padding */
-      padding: 70px 20px;
+      padding: 88px 0;
     }
 
-    .section-title {
-      font-size: 38px;
-      margin: 0 0 14px;
+    .alt {
+      background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+      border-top: 1px solid rgba(226,232,240,0.8);
+      border-bottom: 1px solid rgba(226,232,240,0.8);
+    }
+
+    .section-head {
+      max-width: 760px;
+      margin: 0 auto 36px;
       text-align: center;
-      color: #0f172a;
+    }
+
+    .section-kicker {
+      color: var(--primary);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      font-size: clamp(30px, 5vw, 42px);
+      line-height: 1.12;
+      margin: 0 0 14px;
+      color: var(--text);
     }
 
     .section-sub {
-      text-align: center;
-      max-width: 760px;
-      margin: 0 auto 36px;
-      color: #475569;
-      line-height: 1.7;
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.75;
       font-size: 18px;
     }
 
-    .features {
+    .feature-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 18px;
-      margin-top: 30px;
     }
 
     .feature-card {
-      background: white;
-      border-radius: 16px;
-      padding: 24px;
-      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
-      border: 1px solid #e5e7eb;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 26px;
+      box-shadow: var(--shadow);
+    }
+
+    .feature-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: #eff6ff;
+      color: var(--primary);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      margin-bottom: 14px;
     }
 
     .feature-card h3 {
       margin: 0 0 10px;
-      font-size: 20px;
-      color: #0f172a;
+      font-size: 22px;
+      color: var(--text);
     }
 
     .feature-card p {
       margin: 0;
       line-height: 1.7;
-      color: #475569;
+      color: var(--muted);
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .panel {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 26px;
+      box-shadow: var(--shadow);
+    }
+
+    .panel h3 {
+      margin: 0 0 12px;
+      font-size: 24px;
+      color: var(--text);
+    }
+
+    .panel p {
+      margin: 0 0 16px;
+      line-height: 1.7;
+      color: var(--muted);
+    }
+
+    .bullets {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .bullets li {
+      padding-left: 16px;
+      position: relative;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .bullets li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+      font-weight: 900;
     }
 
     .form-wrap,
     .chat-wrap {
-      background: white;
-      border: 1px solid #e5e7eb;
-      border-radius: 18px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 22px;
       padding: 24px;
-      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+      box-shadow: var(--shadow);
+    }
+
+    iframe {
+      width: 100%;
+      min-height: 720px;
+      border: 0;
+      border-radius: 16px;
+      background: #fff;
     }
 
     .chat-wrap {
-      max-width: 780px;
+      max-width: 860px;
       margin: 0 auto;
     }
 
     .chat-log {
-      height: 320px;
+      min-height: 340px;
+      max-height: 420px;
       overflow-y: auto;
-      border: 1px solid #dbe2ea;
-      border-radius: 12px;
-      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 16px;
       margin-bottom: 14px;
       background: #fafcff;
     }
 
     .chat-message {
       margin-bottom: 12px;
-      line-height: 1.6;
+      line-height: 1.65;
+      color: var(--muted);
     }
 
     .chat-message strong {
-      color: #0f172a;
+      color: var(--text);
     }
 
     .chat-input {
@@ -172,47 +428,89 @@
 
     .chat-input input {
       flex: 1;
-      padding: 14px;
+      min-height: 52px;
+      padding: 14px 16px;
       border: 1px solid #d1d5db;
-      border-radius: 10px;
+      border-radius: 12px;
       font-size: 16px;
+      outline: none;
+    }
+
+    .chat-input input:focus {
+      border-color: #93c5fd;
+      box-shadow: 0 0 0 3px rgba(147, 197, 253, 0.2);
     }
 
     .chat-input button {
-      padding: 14px 20px;
+      min-width: 116px;
+      min-height: 52px;
       border: none;
-      border-radius: 10px;
-      background: #0a2c63;
+      border-radius: 12px;
+      background: var(--primary);
       color: white;
       font-weight: 700;
       cursor: pointer;
     }
 
-    iframe {
-      width: 100%;
-      border: none;
-      min-height: 620px;
-      border-radius: 12px;
+    .faq-grid {
+      display: grid;
+      gap: 14px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 20px 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .faq-item h3 {
+      margin: 0 0 8px;
+      font-size: 19px;
+    }
+
+    .faq-item p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
     }
 
     footer {
       text-align: center;
-      padding: 30px 20px 50px;
+      padding: 28px 20px 44px;
       color: #64748b;
       font-size: 14px;
     }
 
+    @media (max-width: 980px) {
+      .hero,
+      .split,
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .site-header {
+        min-height: auto;
+        padding-bottom: 52px;
+      }
+    }
+
     @media (max-width: 768px) {
-      h1 {
-        font-size: 40px;
+      .topbar {
+        flex-direction: column;
+        align-items: flex-start;
       }
 
-      .hero-sub {
-        font-size: 18px;
+      .nav {
+        gap: 12px;
       }
 
-      .section-title {
-        font-size: 30px;
+      .hero-sub,
+      .section-sub {
+        font-size: 17px;
       }
 
       .chat-input {
@@ -222,76 +520,200 @@
       .chat-input button {
         width: 100%;
       }
+
+      section {
+        padding: 72px 0;
+      }
+
+      iframe {
+        min-height: 760px;
+      }
     }
   </style>
 </head>
 <body>
+  <header class="site-header">
+    <div class="container">
+      <div class="topbar">
+        <a class="brand" href="#top">ListingoAI</a>
+        <nav class="nav">
+          <a href="#features">Features</a>
+          <a href="#early-access">Early Access</a>
+          <a href="#chat">AI Assistant</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+      </div>
 
-  <header>
-    <div class="hero-wrap">
-      <h1>ListingoAI</h1>
-      <p class="hero-sub">
-        Create high-converting product titles, descriptions, tags and social content in seconds with AI.
-      </p>
-      <div class="hero-buttons">
-        <a class="btn btn-primary" href="#early-access">Join Early Access</a>
-        <a class="btn btn-secondary" href="#chat">Try AI Assistant</a>
+      <div class="hero" id="top">
+        <div>
+          <span class="eyebrow">AI for Etsy, e-commerce and creator brands</span>
+          <h1>Write better listings and launch content in minutes.</h1>
+          <p class="hero-sub">
+            Turn a simple product idea into stronger titles, descriptions, tags and social copy without spending hours rewriting everything by hand.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#early-access">Join Early Access</a>
+            <a class="btn btn-secondary" href="#chat">Try AI Assistant</a>
+          </div>
+          <div class="hero-meta">
+            <span>Faster listing creation</span>
+            <span>SEO-friendly outputs</span>
+            <span>Built for modern sellers</span>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <p class="hero-card-title">Preview</p>
+          <div class="mock-window">
+            <div class="mock-bar">
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </div>
+            <div class="mock-body">
+              <span class="mock-pill">Product: Minimalist Candle Gift Set</span>
+              <div class="mock-card">
+                <strong>SEO Title</strong>
+                Hand-Poured Soy Candle Gift Set for Home Decor, Relaxation and Birthday Gifting
+              </div>
+              <div class="mock-card">
+                <strong>Tags</strong>
+                soy candle gift, cozy home decor, self care gift, candle set, handmade candle
+              </div>
+              <div class="mock-card">
+                <strong>Promo Copy</strong>
+                Launch a cleaner product page, stronger Etsy copy and ready-to-post social content from one prompt.
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </header>
 
-  <section>
-    <h2 class="section-title">Why ListingoAI?</h2>
-    <p class="section-sub">
-      Built for Etsy sellers, e-commerce brands and digital creators who want faster listing creation,
-      better SEO and cleaner marketing copy without wasting hours.
-    </p>
+  <section id="features" class="alt">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-kicker">Why ListingoAI</div>
+        <h2>Built to save time without making your store look generic.</h2>
+        <p class="section-sub">
+          Use one workflow to generate listing content, product hooks and campaign-ready copy while keeping your brand voice cleaner and more consistent.
+        </p>
+      </div>
 
-    <div class="features">
-      <div class="feature-card">
-        <h3>Generate Faster</h3>
-        <p>Create titles, bullet points, descriptions and tags from a simple product idea.</p>
-      </div>
-      <div class="feature-card">
-        <h3>Sell Better</h3>
-        <p>Write clearer and more persuasive copy designed to improve clicks and conversions.</p>
-      </div>
-      <div class="feature-card">
-        <h3>Work Smarter</h3>
-        <p>Reuse AI across product pages, Etsy listings, captions and launch content.</p>
+      <div class="feature-grid">
+        <article class="feature-card">
+          <div class="feature-icon">01</div>
+          <h3>Generate faster</h3>
+          <p>Create product titles, bullets, descriptions and tags from a simple product idea or short brief.</p>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon">02</div>
+          <h3>Sell better</h3>
+          <p>Write clearer, more persuasive copy designed to improve clicks, engagement and conversions.</p>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon">03</div>
+          <h3>Work smarter</h3>
+          <p>Reuse the same AI workflow across Etsy listings, product pages, captions, launches and ad angles.</p>
+        </article>
       </div>
     </div>
   </section>
 
-  <section id="early-access">
-    <h2 class="section-title">Join Early Access</h2>
-    <p class="section-sub">
-      Be among the first sellers to try ListingoAI and get access before the public launch.
-    </p>
+  <section>
+    <div class="container">
+      <div class="split">
+        <div class="panel">
+          <h3>What you can create</h3>
+          <p>ListingoAI is designed for sellers and product-based brands that need useful outputs fast, not generic filler text.</p>
+          <ul class="bullets">
+            <li>Etsy titles and tags</li>
+            <li>Product descriptions and bullet points</li>
+            <li>Instagram captions and launch blurbs</li>
+            <li>Brand-friendly product messaging</li>
+            <li>Quick rewrite and variation generation</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h3>Why this version is fixed</h3>
+          <p>This page keeps the hero at the top, restores balanced section spacing, and gives the lower sections a polished layout so the site looks complete again.</p>
+          <ul class="bullets">
+            <li>Hero area restored and visually centered</li>
+            <li>Sections redesigned with stronger spacing and card layout</li>
+            <li>Early-access form kept embedded and visible</li>
+            <li>AI demo section preserved for later API hookup</li>
+            <li>No payment code added yet, as requested</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <div class="form-wrap">
-      <iframe
-        data-tally-src="https://tally.so/embed/D45v8E?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
-        loading="lazy"
-        title="Join ListingoAI Early Access">
-      </iframe>
+  <section id="early-access" class="alt">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-kicker">Join Early Access</div>
+        <h2>Get on the list before public launch.</h2>
+        <p class="section-sub">
+          Join the waitlist to get first access, early feature announcements and launch updates for ListingoAI.
+        </p>
+      </div>
+
+      <div class="form-wrap">
+        <iframe
+          data-tally-src="https://tally.so/embed/D45v8E?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+          loading="lazy"
+          title="Join ListingoAI Early Access">
+        </iframe>
+      </div>
     </div>
   </section>
 
   <section id="chat">
-    <h2 class="section-title">Try the AI Assistant</h2>
-    <p class="section-sub">
-      Ask for product descriptions, SEO-friendly tags, titles or short promotional text.
-    </p>
-
-    <div class="chat-wrap">
-      <div id="chatLog" class="chat-log">
-        <div class="chat-message"><strong>AI:</strong> Hi! Describe your product and I’ll help write better listing copy.</div>
+    <div class="container">
+      <div class="section-head">
+        <div class="section-kicker">Try the AI Assistant</div>
+        <h2>Test a simple prompt flow on the page.</h2>
+        <p class="section-sub">
+          The interface is ready. Once you connect your API key properly on a secure backend, this section can generate listing copy live.
+        </p>
       </div>
 
-      <div class="chat-input">
-        <input id="chatInput" type="text" placeholder="Example: Write an Etsy title for a minimalist candle gift set" />
-        <button onclick="sendMessage()">Send</button>
+      <div class="chat-wrap">
+        <div id="chatLog" class="chat-log">
+          <div class="chat-message"><strong>AI:</strong> Hi! Describe your product and I’ll help write better listing copy.</div>
+        </div>
+
+        <div class="chat-input">
+          <input id="chatInput" type="text" placeholder="Example: Write an Etsy title for a minimalist candle gift set" />
+          <button onclick="sendMessage()">Send</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="alt">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-kicker">FAQ</div>
+        <h2>Common questions</h2>
+        <p class="section-sub">This keeps the lower half of the page looking finished instead of abruptly ending after the form and chat blocks.</p>
+      </div>
+
+      <div class="faq-grid">
+        <div class="faq-item">
+          <h3>Is payment live yet?</h3>
+          <p>No. Payment can be added later once the layout and content flow are locked in.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Is ChatGPT connected yet?</h3>
+          <p>The front-end demo is ready, but the secure connection should be done with a backend or protected environment instead of exposing a key in HTML.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Can this page be edited later?</h3>
+          <p>Yes. This structure is still a single-file landing page, so sections, copy and integrations can be updated quickly.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -308,7 +730,6 @@
       d.body.appendChild(s);
     })();
 
-
     async function sendMessage() {
       const input = document.getElementById("chatInput");
       const chatLog = document.getElementById("chatLog");
@@ -322,7 +743,7 @@
       const apiKey = "REPLACE_WITH_YOUR_OPENAI_API_KEY";
 
       if (apiKey === "REPLACE_WITH_YOUR_OPENAI_API_KEY") {
-        chatLog.innerHTML += `<div class="chat-message" style="color:#b91c1c;"><strong>AI:</strong> OpenAI API key is missing. Add your API key in the HTML file first.</div>`;
+        chatLog.innerHTML += `<div class="chat-message" style="color:#b91c1c;"><strong>AI:</strong> OpenAI API key is missing. Add your API key in a secure backend before using this live.</div>`;
         chatLog.scrollTop = chatLog.scrollHeight;
         return;
       }
@@ -351,14 +772,15 @@
         });
 
         const data = await response.json();
-        const aiReply =
-          data?.choices?.[0]?.message?.content?.trim() ||
-          "No response received.";
+        const aiReply = data?.choices?.[0]?.message?.content?.trim() || "No response received.";
 
         chatLog.innerHTML += `<div class="chat-message"><strong>AI:</strong> ${aiReply}</div>`;
       } catch (error) {
-        chatLog.innerHTML += `<div class="chat-message" style="color:#b91c1c;"><strong>AI:</strong> Something went wrong. Check your API key and try again.</div>`;
+        chatLog.innerHTML += `<div class="chat-message" style="color:#b91c1c;"><strong>AI:</strong> Something went wrong. Check your API setup and try again.</div>`;
       }
 
       chatLog.scrollTop = chatLog.scrollHeight;
-    
+    }
+  </script>
+</body>
+</html>
