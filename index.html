@@ -1,88 +1,358 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>ListingAI – AI‑Powered Writing</title>
-    <style>
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f5f5f5;
-            color: #333;
-        }
-        header {
-            background-color: #041E42;
-            color: #ffffff;
-            padding: 60px 20px;
-            text-align: center;
-        }
-        header h1 {
-            font-size: 3rem;
-            margin-bottom: 15px;
-            font-weight: bold;
-        }
-        header p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-        }
-        .cta-button {
-            display: inline-block;
-            padding: 14px 28px;
-            font-size: 1rem;
-            background-color: #F6A307;
-            color: #041E42;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            text-decoration: none;
-            transition: background-color 0.2s ease;
-        }
-        .cta-button:hover {
-            background-color: #e59600;
-        }
-        section {
-            padding: 40px 20px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        section h2 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            text-align: center;
-            color: #041E42;
-        }
-        iframe {
-            width: 100%;
-            min-height: 500px;
-            border: none;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ListingoAI – AI-Powered Content Engine</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f7fb;
+      color: #1f2937;
+    }
+
+    header {
+      background: linear-gradient(135deg, #041e42 0%, #0a2c63 100%);
+      color: white;
+      padding: 80px 20px 70px;
+      text-align: center;
+    }
+
+    .hero-wrap {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      margin: 0 0 18px;
+      font-size: 56px;
+      line-height: 1.1;
+    }
+
+    .hero-sub {
+      font-size: 22px;
+      line-height: 1.6;
+      max-width: 780px;
+      margin: 0 auto 30px;
+      color: #e6edf8;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 24px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      background: #f5b100;
+      color: #041e42;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: white;
+      border: 1px solid rgba(255,255,255,0.35);
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      opacity: 0.95;
+    }
+
+    section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 70px 20px;
+    }
+
+    .section-title {
+      font-size: 38px;
+      margin: 0 0 14px;
+      text-align: center;
+      color: #0f172a;
+    }
+
+    .section-sub {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 36px;
+      color: #475569;
+      line-height: 1.7;
+      font-size: 18px;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+      margin-top: 30px;
+    }
+
+    .feature-card {
+      background: white;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+      border: 1px solid #e5e7eb;
+    }
+
+    .feature-card h3 {
+      margin: 0 0 10px;
+      font-size: 20px;
+      color: #0f172a;
+    }
+
+    .feature-card p {
+      margin: 0;
+      line-height: 1.7;
+      color: #475569;
+    }
+
+    .form-wrap,
+    .chat-wrap {
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 18px;
+      padding: 24px;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+    }
+
+    .chat-wrap {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .chat-log {
+      height: 320px;
+      overflow-y: auto;
+      border: 1px solid #dbe2ea;
+      border-radius: 12px;
+      padding: 14px;
+      margin-bottom: 14px;
+      background: #fafcff;
+    }
+
+    .chat-message {
+      margin-bottom: 12px;
+      line-height: 1.6;
+    }
+
+    .chat-message strong {
+      color: #0f172a;
+    }
+
+    .chat-input {
+      display: flex;
+      gap: 10px;
+    }
+
+    .chat-input input {
+      flex: 1;
+      padding: 14px;
+      border: 1px solid #d1d5db;
+      border-radius: 10px;
+      font-size: 16px;
+    }
+
+    .chat-input button {
+      padding: 14px 20px;
+      border: none;
+      border-radius: 10px;
+      background: #0a2c63;
+      color: white;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    iframe {
+      width: 100%;
+      border: none;
+      min-height: 620px;
+      border-radius: 12px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px 50px;
+      color: #64748b;
+      font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 40px;
+      }
+
+      .hero-sub {
+        font-size: 18px;
+      }
+
+      .section-title {
+        font-size: 30px;
+      }
+
+      .chat-input {
+        flex-direction: column;
+      }
+
+      .chat-input button {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>ListingAI</h1>
-        <p>AI‑powered writing engine for high‑converting product titles, tags, descriptions and social posts.</p>
-        <a href="#early-access" class="cta-button">Join Early Access</a>
-    </header>
-    <section id="early-access">
-        <h2>Join Early Access</h2>
-        <!-- Tally embed: this form will collect emails from interested users -->
-        <iframe data-tally-src="https://tally.so/embed/D45v8E?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="623" frameborder="0" marginheight="0" marginwidth="0" title="Join ListingAI Early Access"></iframe>
-        <script>
-            (function() {
-                var d = document;
-                var s = d.createElement('script');
-                s.src = 'https://tally.so/widgets/embed.js';
-                s.onload = function() {
-                    if (typeof Tally !== 'undefined') {
-                        Tally.loadEmbeds();
-                    }
-                };
-                d.body.appendChild(s);
-            })();
-        </script>
-    </section>
+
+  <header>
+    <div class="hero-wrap">
+      <h1>ListingoAI</h1>
+      <p class="hero-sub">
+        Create high-converting product titles, descriptions, tags and social content in seconds with AI.
+      </p>
+      <div class="hero-buttons">
+        <a class="btn btn-primary" href="#early-access">Join Early Access</a>
+        <a class="btn btn-secondary" href="#chat">Try AI Assistant</a>
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <h2 class="section-title">Why ListingoAI?</h2>
+    <p class="section-sub">
+      Built for Etsy sellers, e-commerce brands and digital creators who want faster listing creation,
+      better SEO and cleaner marketing copy without wasting hours.
+    </p>
+
+    <div class="features">
+      <div class="feature-card">
+        <h3>Generate Faster</h3>
+        <p>Create titles, bullet points, descriptions and tags from a simple product idea.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Sell Better</h3>
+        <p>Write clearer and more persuasive copy designed to improve clicks and conversions.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Work Smarter</h3>
+        <p>Reuse AI across product pages, Etsy listings, captions and launch content.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="early-access">
+    <h2 class="section-title">Join Early Access</h2>
+    <p class="section-sub">
+      Be among the first sellers to try ListingoAI and get access before the public launch.
+    </p>
+
+    <div class="form-wrap">
+      <iframe
+        data-tally-src="https://tally.so/embed/D45v8E?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+        loading="lazy"
+        title="Join ListingoAI Early Access">
+      </iframe>
+    </div>
+  </section>
+
+  <section id="chat">
+    <h2 class="section-title">Try the AI Assistant</h2>
+    <p class="section-sub">
+      Ask for product descriptions, SEO-friendly tags, titles or short promotional text.
+    </p>
+
+    <div class="chat-wrap">
+      <div id="chatLog" class="chat-log">
+        <div class="chat-message"><strong>AI:</strong> Hi! Describe your product and I’ll help write better listing copy.</div>
+      </div>
+
+      <div class="chat-input">
+        <input id="chatInput" type="text" placeholder="Example: Write an Etsy title for a minimalist candle gift set" />
+        <button onclick="sendMessage()">Send</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 ListingoAI. AI-powered listing and content creation for modern sellers.
+  </footer>
+
+  <script>
+    (function () {
+      var d = document, w = "https://tally.so/widgets/embed.js";
+      var s = d.createElement("script");
+      s.src = w;
+      d.body.appendChild(s);
+    })();
+
+    async function sendMessage() {
+      const input = document.getElementById("chatInput");
+      const chatLog = document.getElementById("chatLog");
+      const userMessage = input.value.trim();
+
+      if (!userMessage) return;
+
+      chatLog.innerHTML += `<div class="chat-message"><strong>You:</strong> ${userMessage}</div>`;
+      input.value = "";
+
+      const apiKey = "REPLACE_WITH_YOUR_OPENAI_API_KEY";
+
+      if (apiKey === "REPLACE_WITH_YOUR_OPENAI_API_KEY") {
+        chatLog.innerHTML += `<div class="chat-message" style="color:#b91c1c;"><strong>AI:</strong> OpenAI API key is missing. Add your API key in the HTML file first.</div>`;
+        chatLog.scrollTop = chatLog.scrollHeight;
+        return;
+      }
+
+      try {
+        const response = await fetch("https://api.openai.com/v1/chat/completions", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer " + apiKey
+          },
+          body: JSON.stringify({
+            model: "gpt-3.5-turbo",
+            messages: [
+              {
+                role: "system",
+                content: "You help users create product titles, descriptions, tags and marketing copy."
+              },
+              {
+                role: "user",
+                content: userMessage
+              }
+            ],
+            max_tokens: 180
+          })
+        });
+
+        const data = await response.json();
+        const aiReply =
+          data?.choices?.[0]?.message?.content?.trim() ||
+          "No response received.";
+
+        chatLog.innerHTML += `<div class="chat-message"><strong>AI:</strong> ${aiReply}</div>`;
+      } catch (error) {
+        chatLog.innerHTML += `<div class="chat-message" style="color:#b91c1c;"><strong>AI:</strong> Something went wrong. Check your API key and try again.</div>`;
+      }
+
+      chatLog.scrollTop = chatLog.scrollHeight;
+    }
+  </script>
+
 </body>
 </html>
-<!-- deploy -->
