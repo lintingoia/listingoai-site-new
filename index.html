@@ -113,6 +113,26 @@ footer{padding:27px 0 48px;color:#597068;font-size:8px;border-top:1px solid rgba
 @media(max-width:1180px){.grid{grid-template-columns:190px minmax(0,1fr) 290px}.navpill a{padding:8px 9px}.kpi-row{grid-template-columns:1fr 1fr 1fr}.kpi:last-child{display:none}}
 @media(max-width:940px){.navpill{display:none}.grid{grid-template-columns:185px minmax(0,1fr)}.right{grid-column:1/-1;grid-template-columns:1fr 1fr;min-height:0}.ai,.score,.sent,.insights{min-height:0}.insights{grid-column:1/-1}.workspace{grid-template-columns:1fr 1fr}}
 @media(max-width:680px){.wrap{width:min(var(--max),calc(100% - 24px))}.nav{height:62px}.account span,.btn-ai{display:none}.topbarline{align-items:flex-start;gap:10px;flex-direction:column}.kpi-row{grid-template-columns:1fr 1fr}.kpi:nth-child(n+3){display:none}.grid{grid-template-columns:1fr}.left,.center,.right{grid-column:auto}.right{grid-template-columns:1fr}.insights{grid-column:auto}.chartline{align-items:flex-start;flex-direction:column}.chartbox{height:300px}.buysell{margin-left:0}.trade{grid-template-columns:1fr}.tradepanel{border-right:0;border-bottom:1px solid rgba(255,255,255,.045)}.workspace{grid-template-columns:1fr}.sectionhead{align-items:flex-start;flex-direction:column}.pro{align-items:flex-start;flex-direction:column}}
+
+/* AI MARKET RESEARCH */
+.research-shell{margin-top:16px;padding:1px;border-radius:20px;background:linear-gradient(135deg,rgba(70,243,157,.18),rgba(115,220,255,.06),rgba(170,156,255,.14))}
+.research-shell-inner{border-radius:19px;background:
+radial-gradient(700px 280px at 15% 0,rgba(70,243,157,.09),transparent 65%),
+radial-gradient(520px 240px at 88% 18%,rgba(170,156,255,.07),transparent 66%),
+linear-gradient(180deg,rgba(12,27,20,.94),rgba(5,11,8,.97));
+border:1px solid rgba(255,255,255,.055);box-shadow:0 30px 100px rgba(0,0,0,.42),inset 0 1px 0 rgba(255,255,255,.04);padding:18px;backdrop-filter:blur(22px)}
+.research-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:14px}.research-head h2{margin:4px 0 4px;font-size:28px;letter-spacing:-1px}.research-head p{margin:0;max-width:690px;color:#71877e;font-size:10px}.research-badge{display:flex;align-items:center;gap:7px;color:#a9b9b2;font-size:8px;padding:7px 9px;border-radius:999px;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.07)}.research-badge i{width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 11px rgba(70,243,157,.85)}
+.research-grid{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(300px,.7fr);gap:12px}
+.chat-card{min-height:440px;display:flex;flex-direction:column}.chat-top{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-bottom:1px solid rgba(255,255,255,.05)}.chat-title{display:flex;align-items:center;gap:10px}.ai-orb{width:34px;height:34px;border-radius:11px;display:grid;place-items:center;background:radial-gradient(circle at 30% 30%,#b9ffdb,#46f39d 42%,#0f5d3e 100%);color:#03180d;font-weight:950;box-shadow:0 0 26px rgba(70,243,157,.17)}.chat-title b{display:block;font-size:12px}.chat-title small{display:block;color:#637970;font-size:8px;margin-top:2px}.chat-actions{display:flex;gap:6px}.ghost{height:28px;padding:0 9px;border:1px solid rgba(255,255,255,.07);border-radius:7px;background:rgba(255,255,255,.02);color:#82978f;font-size:8px;cursor:pointer}
+.chat-thread{flex:1;padding:14px;display:flex;flex-direction:column;gap:10px;background:linear-gradient(180deg,rgba(4,10,7,.28),rgba(5,11,8,.64))}
+.msg{max-width:92%;padding:11px 12px;border-radius:12px;border:1px solid rgba(255,255,255,.06);font-size:10px;color:#bdcec6;box-shadow:0 10px 30px rgba(0,0,0,.14)}.msg.user{align-self:flex-end;background:linear-gradient(180deg,rgba(28,52,40,.84),rgba(15,30,23,.85));border-color:rgba(70,243,157,.12);color:#e8f3ee}.msg.ai{align-self:flex-start;background:linear-gradient(180deg,rgba(10,21,16,.92),rgba(6,13,10,.92));}.msg .label{display:block;text-transform:uppercase;letter-spacing:.55px;font-size:7px;font-weight:950;margin-bottom:5px;color:#6e8a7d}.msg.user .label{color:#7cf1b4}.msg.ai .label{color:#a99cff}
+.horizon-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:8px}.horizon{padding:9px;border:1px solid rgba(255,255,255,.065);border-radius:9px;background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.008))}.horizon small{display:block;color:#687d75;font-size:7px}.horizon b{display:block;margin-top:2px;font-size:10px}.horizon span{display:block;color:#8d9f98;font-size:7px;margin-top:2px}.dir-up{color:var(--green)}.dir-neutral{color:var(--amber)}.dir-down{color:var(--red)}
+.sources{display:flex;flex-wrap:wrap;gap:5px;margin-top:7px}.source-pill{padding:5px 7px;border-radius:999px;background:rgba(115,220,255,.045);border:1px solid rgba(115,220,255,.11);color:#83c7dc;font-size:7px}
+.chat-prompt{padding:10px 12px;border-top:1px solid rgba(255,255,255,.05);background:rgba(6,14,10,.74)}.prompt-chips{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:8px}.chip{height:25px;padding:0 8px;border-radius:999px;border:1px solid rgba(255,255,255,.07);background:rgba(255,255,255,.02);color:#82978f;font-size:7px;cursor:pointer}.chip:hover{border-color:rgba(70,243,157,.18);color:#bbf6d7}.chat-input{display:flex;gap:7px;padding:6px;border-radius:11px;border:1px solid rgba(70,243,157,.2);background:#07110c;box-shadow:inset 0 1px 0 rgba(255,255,255,.03)}.chat-input input{flex:1;min-width:0;height:34px;border:0;outline:0;background:transparent;color:#e0ece6;padding:0 7px;font-size:9px}.chat-input input::placeholder{color:#5d746a}.send{width:38px;height:34px;border:0;border-radius:8px;background:linear-gradient(180deg,#65f7ac,#35dc8a);color:#04150b;font-weight:950;cursor:pointer}
+.research-rail{display:grid;grid-template-rows:auto auto 1fr;gap:10px}.control-card,.scenario-card,.recent-card{padding:13px}.control-card h3,.scenario-card h3,.recent-card h3{margin:0;font-size:11px}.control-sub{color:#657b72;font-size:8px;margin-top:4px}.control-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:10px}.control-field{padding:8px 9px;border:1px solid rgba(255,255,255,.065);border-radius:9px;background:rgba(255,255,255,.02)}.control-field small{display:block;color:#5f766c;font-size:7px;margin-bottom:3px}.control-field b{font-size:8px}.scenario-list{display:grid;gap:7px;margin-top:9px}.scenario-row{display:flex;align-items:center;justify-content:space-between;padding:8px 9px;border-radius:9px;border:1px solid rgba(255,255,255,.06);background:rgba(255,255,255,.018)}.scenario-row span{color:#80948c;font-size:8px}.scenario-row b{font-size:8px}.recent-list{display:grid;gap:0;margin-top:7px}.recent-q{padding:9px 0;border-bottom:1px solid rgba(255,255,255,.045);font-size:8px;color:#a0b1aa;cursor:pointer}.recent-q:last-child{border:0}.recent-q span{display:block;color:#5e766d;font-size:7px;margin-top:3px}
+.disclaimer{margin-top:9px;color:#526a61;font-size:7px;line-height:1.45;padding:8px 9px;border-radius:8px;background:rgba(255,255,255,.015);border:1px solid rgba(255,255,255,.04)}
+@media(max-width:940px){.research-grid{grid-template-columns:1fr}.research-rail{grid-template-columns:1fr 1fr}.recent-card{grid-column:1/-1}}
+@media(max-width:680px){.research-shell-inner{padding:12px}.research-head{align-items:flex-start;flex-direction:column}.research-head h2{font-size:23px}.research-rail{grid-template-columns:1fr}.recent-card{grid-column:auto}.horizon-grid{grid-template-columns:1fr}.msg{max-width:96%}}
 </style>
 </head>
 <body>
@@ -130,10 +150,10 @@ footer{padding:27px 0 48px;color:#597068;font-size:8px;border-top:1px solid rgba
 <span><span class="brand-list">Listingo</span><span class="brand-ai">AI</span></span>
 </a>
 <nav class="navpill">
-<a class="active" href="#top">Overview</a><a href="#markets">Markets</a><a href="#trade">Trade</a><a href="#ai">AI Research</a><a href="#portfolio">Portfolio</a><a href="#alerts">Alerts</a><a href="#pro">Pro</a>
+<a class="active" href="#top">Overview</a><a href="#markets">Markets</a><a href="#trade">Trade</a><a href="#research">AI Research</a><a href="#portfolio">Portfolio</a><a href="#alerts">Alerts</a><a href="#pro">Pro</a>
 </nav>
 <div class="navright">
-<button class="btn btn-ai" onclick="jump('ai')">✦ Ask AI</button>
+<button class="btn btn-ai" onclick="jump('research')">✦ Ask AI</button>
 <button class="btn btn-green" onclick="jump('trade')">Buy / Sell</button>
 <div class="account"><div class="account-avatar">A</div><span>Account</span></div>
 </div>
@@ -261,6 +281,87 @@ footer{padding:27px 0 48px;color:#597068;font-size:8px;border-top:1px solid rgba
 </aside>
 </div>
 
+
+<section class="research-shell" id="research">
+  <div class="research-shell-inner">
+    <div class="research-head">
+      <div>
+        <div class="kicker">AI MARKET RESEARCH</div>
+        <h2>Ask ListingoAI what the market could mean next.</h2>
+        <p>One premium research space for direction, scenarios, technical structure, risk and cross-asset comparisons — from short term to long term.</p>
+      </div>
+      <div class="research-badge"><i></i>Scenario analysis · not a guaranteed forecast</div>
+    </div>
+    <div class="research-grid">
+      <section class="glass chat-card">
+        <div class="chat-top">
+          <div class="chat-title">
+            <div class="ai-orb">AI</div>
+            <div><b>ListingoAI Research Desk</b><small>Market-aware conversational analysis</small></div>
+          </div>
+          <div class="chat-actions"><button class="ghost" onclick="clearResearch()">New chat</button><button class="ghost" onclick="toast('Research export will be available with Pro.')">Export</button></div>
+        </div>
+        <div class="chat-thread" id="researchThread">
+          <div class="msg user"><span class="label">You</span>BTC'nin kısa, orta ve uzun vadede yönü hakkında ne düşünüyorsun?</div>
+          <div class="msg ai">
+            <span class="label">ListingoAI · preview response</span>
+            <div>Tek bir yön “kesinleşmiş” gibi sunmak yerine üç zaman ufkunda senaryo analizi yapılır. Üretim sürümünde cevap; canlı fiyat, momentum, hacim, volatilite, piyasa yapısı ve ilgili piyasa olaylarıyla oluşturulacak.</div>
+            <div class="horizon-grid">
+              <div class="horizon"><small>Kısa vade</small><b class="dir-up">Pozitif eğilim</b><span>Momentum + hacim</span></div>
+              <div class="horizon"><small>Orta vade</small><b class="dir-neutral">Koşullu</b><span>Yapı ve akış önemli</span></div>
+              <div class="horizon"><small>Uzun vade</small><b class="dir-up">Senaryo bazlı</b><span>Makro + adoption</span></div>
+            </div>
+            <div class="sources"><span class="source-pill">Price action</span><span class="source-pill">Volume</span><span class="source-pill">Volatility</span><span class="source-pill">Market structure</span></div>
+          </div>
+          <div class="msg ai"><span class="label">Next layer</span>İstersen aynı analizde destek/direnç, risk senaryoları, BTC–ETH karşılaştırması veya portföy etkisini de açabiliriz.</div>
+        </div>
+        <div class="chat-prompt">
+          <div class="prompt-chips">
+            <button class="chip" onclick="setResearchPrompt('BTC kısa vadede hangi yönde?')">BTC kısa vade</button>
+            <button class="chip" onclick="setResearchPrompt('BTC orta vadeli senaryoları neler?')">BTC orta vade</button>
+            <button class="chip" onclick="setResearchPrompt('BTC uzun vadede hangi riskleri taşıyor?')">BTC uzun vade</button>
+            <button class="chip" onclick="setResearchPrompt('BTC ve ETH hangisi daha güçlü?')">BTC vs ETH</button>
+            <button class="chip" onclick="setResearchPrompt('Şu an piyasadaki en önemli risk ne?')">Market risk</button>
+            <button class="chip" onclick="setResearchPrompt('SOL neden hareket ediyor?')">Why SOL?</button>
+          </div>
+          <div class="chat-input"><input id="researchInput" placeholder="Örn. BTC'nin 1–4 haftalık görünümünü ve ana riskleri analiz et..."><button class="send" onclick="sendResearch()">➜</button></div>
+        </div>
+      </section>
+
+      <aside class="research-rail">
+        <section class="glass control-card">
+          <h3>Research controls</h3><div class="control-sub">Choose the lens before asking.</div>
+          <div class="control-grid">
+            <div class="control-field"><small>Asset</small><b>BTC / Bitcoin</b></div>
+            <div class="control-field"><small>Horizon</small><b id="horizonLabel">Multi-horizon</b></div>
+            <div class="control-field"><small>Lens</small><b>Scenario analysis</b></div>
+            <div class="control-field"><small>Risk</small><b>Medium detail</b></div>
+          </div>
+          <div class="disclaimer">AI analysis is informational. Production responses should surface assumptions, uncertainty and relevant market data rather than promise a guaranteed outcome.</div>
+        </section>
+        <section class="glass scenario-card">
+          <h3>What the AI will evaluate</h3>
+          <div class="scenario-list">
+            <div class="scenario-row"><span>Momentum</span><b class="up">Positive</b></div>
+            <div class="scenario-row"><span>Volume regime</span><b>Expanding</b></div>
+            <div class="scenario-row"><span>Volatility</span><b>Medium</b></div>
+            <div class="scenario-row"><span>Market structure</span><b class="up">Bullish</b></div>
+            <div class="scenario-row"><span>Macro / events</span><b>Monitor</b></div>
+          </div>
+        </section>
+        <section class="glass recent-card">
+          <h3>Recent questions</h3>
+          <div class="recent-list">
+            <div class="recent-q" onclick="setResearchPrompt('BTC kısa vadede hangi yönde?')">BTC kısa vadede hangi yönde?<span>BTC · 7D</span></div>
+            <div class="recent-q" onclick="setResearchPrompt('ETH neden BTC karşısında zayıf?')">ETH neden BTC karşısında zayıf?<span>ETH · Relative strength</span></div>
+            <div class="recent-q" onclick="setResearchPrompt('Portföyümde en büyük risk nerede?')">Portföyümde en büyük risk nerede?<span>Portfolio · Risk</span></div>
+            <div class="recent-q" onclick="setResearchPrompt('SOL neden hareket ediyor?')">SOL neden hareket ediyor?<span>SOL · Momentum</span></div>
+          </div>
+        </section>
+      </aside>
+    </div>
+  </div>
+</section>
 <section class="lower" id="portfolio">
 <div class="sectionhead"><div><div class="kicker">Premium workspace</div><h2>Understand. Track. Trade. Manage risk.</h2></div><p>The reference image had the right density. This version keeps that energy while giving ListingoAI a cleaner, more deliberate visual system.</p></div>
 <div class="workspace">
@@ -268,7 +369,7 @@ footer{padding:27px 0 48px;color:#597068;font-size:8px;border-top:1px solid rgba
 <article class="glass wcard"><div class="whead"><strong>Portfolio allocation</strong><span class="tiny">Risk view</span></div><div class="donutwrap"><div class="donut"><span><strong>82</strong><small>score</small></span></div><div class="legendlist"><div class="legendline"><span><i style="background:#42f29b"></i>BTC</span><b>41.2%</b></div><div class="legendline"><span><i style="background:#73dcff"></i>ETH</span><b>22.7%</b></div><div class="legendline"><span><i style="background:#aa9cff"></i>USDC</span><b>19.3%</b></div><div class="legendline"><span><i style="background:#e7bf65"></i>Other</span><b>16.8%</b></div></div></div></article>
 <article class="glass wcard" id="alerts"><div class="whead"><strong>Active alerts</strong><span class="tiny">4 active</span></div><div class="alerts"><div class="alertrow"><span>BTC above $62K</span><span class="tag">PRICE</span></div><div class="alertrow"><span>SOL volume +20%</span><span class="tag">VOLUME</span></div><div class="alertrow"><span>AI risk score &lt; 60</span><span class="tag">AI</span></div><div class="alertrow"><span>ETH / BTC divergence</span><span class="tag">RESEARCH</span></div></div></article>
 </div>
-<div class="pro" id="pro"><div><div class="kicker">LISTINGOAI PRO</div><h3>Advanced intelligence for serious market users.</h3><p>Deep AI research, portfolio analytics, alerts, historical analysis and — once the compliant execution stack is connected — trading.</p></div><button class="btn btn-green" onclick="jump('ai')">Open AI Copilot</button></div>
+<div class="pro" id="pro"><div><div class="kicker">LISTINGOAI PRO</div><h3>Advanced intelligence for serious market users.</h3><p>Deep AI research, portfolio analytics, alerts, historical analysis and — once the compliant execution stack is connected — trading.</p></div><button class="btn btn-green" onclick="jump('ai')">Open AI Research</button></div>
 </section>
 </div>
 </main>
@@ -280,6 +381,11 @@ function jump(id){document.getElementById(id)?.scrollIntoView({behavior:'smooth'
 function setTF(v){document.querySelectorAll('.tf').forEach(x=>x.classList.remove('active'));if(event?.currentTarget)event.currentTarget.classList.add('active');document.getElementById('tfLabel').textContent=v==='7D'?'7 Days':v;toast('Chart timeframe: '+v)}
 function setOrderSide(side){document.getElementById('buyTab').classList.toggle('active',side==='buy');document.getElementById('sellTab').classList.toggle('active',side==='sell');document.getElementById('buyTab').classList.toggle('buyt',side==='buy');document.getElementById('sellTab').classList.toggle('sellt',side==='sell');toast(side==='buy'?'Buy selected':'Sell selected')}
 function tradePreview(){toast('Preview only — live trading will require custody, KYC/AML and compliant execution.') }
+
+function setResearchPrompt(v){const input=document.getElementById('researchInput');if(input){input.value=v;input.focus()}}
+function clearResearch(){const t=document.getElementById('researchThread');if(t){t.innerHTML='<div class="msg ai"><span class="label">ListingoAI Research Desk</span>New research session ready. Ask about direction, scenarios, risk, technical structure or another asset.</div>'}}
+function sendResearch(){const input=document.getElementById('researchInput');const v=input?.value.trim();if(!v){toast('Write a market question first.');return}const t=document.getElementById('researchThread');const msg=document.createElement('div');msg.className='msg user';msg.innerHTML='<span class="label">You</span>'+v.replace(/</g,'&lt;').replace(/>/g,'&gt;');t.appendChild(msg);const reply=document.createElement('div');reply.className='msg ai';reply.innerHTML='<span class="label">ListingoAI · preview</span>Production will combine live market data with scenario analysis, uncertainty and relevant signals before returning this answer.';t.appendChild(reply);input.value='';t.scrollTop=t.scrollHeight;toast('Research question added to the preview.')}
+
 function askAI(){const v=document.getElementById('copilotInput').value.trim();toast(v?'AI Copilot preview: '+v:'Type a market question first.')}
 </script>
 </body>
