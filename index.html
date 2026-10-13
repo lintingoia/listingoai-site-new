@@ -570,7 +570,7 @@ async function connectWallet(index=0){
     await renderWallet();closeWalletModal();toast(walletState.name+' connected');
   }catch{toast('Wallet connection cancelled or unavailable.')}
 }
-async async function renderWallet(){
+async function renderWallet(){
   const a=walletState.address;
   const addr=document.getElementById('walletAddress'); if(addr)addr.textContent=shortAddress(a);
   const mode=document.getElementById('walletMode'); if(mode)mode.textContent=a?(walletState.name||'EVM wallet'):'No wallet connected';
