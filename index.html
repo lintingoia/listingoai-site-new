@@ -96,7 +96,14 @@ body:after{content:"";position:fixed;inset:-20%;pointer-events:none;z-index:-1;o
 .auth-tabs{gap:6px!important;margin-top:16px!important}.auth-tab{min-height:46px!important;padding:0 14px!important;font-size:13px!important}.auth-form{gap:10px!important;margin-top:14px!important}.auth-form input{height:50px!important;padding:0 13px!important;font-size:14px!important}.auth-form .btn{height:50px!important;font-size:14px!important}.auth-status{font-size:10px!important;margin-top:11px!important;line-height:1.5!important}
 @media(max-width:1180px){.hero h1{font-size:52px}}@media(max-width:960px){.hero h1{font-size:46px}.navright .btn{height:41px}.chartbox{height:360px}}@media(max-width:680px){body{font-size:13px}.wrap{width:min(var(--max),calc(100% - 18px))}.hero{padding-top:20px}.hero h1{font-size:39px}.hero p{font-size:13px}.chartbox{height:315px}.pair .price{font-size:22px}.charttools{flex-wrap:wrap}.charttools .btn-green{margin-left:0!important}.nav{height:66px}.navright .btn{display:none}.modal-card{padding:18px}}
 </style>
-</head>
+<style id="listingoai-plan-auth">
+.plan-badge{display:inline-flex;align-items:center;justify-content:center;height:30px;min-width:48px;padding:0 10px;border-radius:999px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.025);color:#849991;font-size:10px;font-weight:950;letter-spacing:.9px}
+.plan-badge.pro{border-color:rgba(255,158,82,.35);background:linear-gradient(90deg,rgba(255,158,82,.12),rgba(168,140,255,.14));color:#ffd5b4;box-shadow:0 0 24px rgba(168,140,255,.12)}
+.btn-logout{border-color:rgba(255,109,120,.16);color:#ff9aa2;background:rgba(255,109,120,.035)}
+.btn-logout:hover{border-color:rgba(255,109,120,.35);background:rgba(255,109,120,.08);color:#fff}
+#navProBtn.is-pro{border-color:rgba(168,140,255,.3);background:linear-gradient(90deg,rgba(168,140,255,.16),rgba(255,158,82,.13));color:#fff;box-shadow:0 0 24px rgba(168,140,255,.1)}
+@media(max-width:1100px){.navright .btn-logout{display:none}.plan-badge{display:none}}
+</style></head>
 <body>
 <header class="top">
   <div class="wrap nav">
@@ -104,7 +111,7 @@ body:after{content:"";position:fixed;inset:-20%;pointer-events:none;z-index:-1;o
     <nav class="navpill">
       <a class="active" href="#markets">Markets</a><a href="#research">AI Analysis</a><a href="#watchlist">Watchlist</a><a href="#portfolio">Portfolio</a><a href="#wallet">Wallet</a><a href="#alerts">Alerts</a><a href="#pro">Pro</a>
     </nav>
-    <div class="navright"><button class="btn btn-violet" onclick="jump('research')">Ask AI</button><button class="btn" id="navAccountBtn" onclick="openAuthModal()">Join / Login</button><button class="btn" id="navWalletBtn" onclick="openWalletModal()">Connect Wallet</button><button class="btn btn-green" onclick="jump('pro')">Get Pro</button></div>
+    <div class="navright"><button class="btn btn-violet" onclick="jump('research')">Ask AI</button><button class="btn" id="navAccountBtn" onclick="openAuthModal()">Join / Login</button><span id="navPlanBadge" class="plan-badge">FREE</span><button class="btn btn-logout" id="navLogoutBtn" onclick="signOut()" hidden>Sign out</button><button class="btn" id="navWalletBtn" onclick="openWalletModal()">Connect Wallet</button><button class="btn btn-green" id="navProBtn" onclick="jump('pro')">Get Pro</button></div>
   </div>
 </header>
 
@@ -414,11 +421,25 @@ async function initAuth(){
     supabaseClient=window.supabase.createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY);
     const {data}=await supabaseClient.auth.getSession();authSession=data?.session||null;renderAuth();
     await loadSavedWallet();
-    supabaseClient.auth.onAuthStateChange((event,session)=>{authSession=session||null;renderAuth();if(session?.user)saveWalletConnection()});
+    supabaseClient.auth.onAuthStateChange((event,session)=>{authSession=session||null;renderAuth();if(session?.user){loadSavedWallet();saveWalletConnection()}else{walletState.address=null;walletState.chainId=null;walletState.name=null;renderWallet()}});
   }catch(e){console.warn('Supabase Auth unavailable',e)}
 }
 function renderAuth(){
-  const btn=document.getElementById('navAccountBtn');if(btn)btn.textContent=authSession?.user?.email?authSession.user.email.split('@')[0]:'Join / Login';
+  const btn=document.getElementById('navAccountBtn');
+  const badge=document.getElementById('navPlanBadge');
+  const logout=document.getElementById('navLogoutBtn');
+  const proBtn=document.getElementById('navProBtn');
+  const email=authSession?.user?.email||'';
+  const plan=String(authSession?.user?.app_metadata?.plan||authSession?.user?.user_metadata?.plan||'free').toLowerCase()==='pro'?'pro':'free';
+  if(btn)btn.textContent=email?email.split('@')[0]:'Join / Login';
+  if(badge){badge.textContent=plan.toUpperCase();badge.classList.toggle('pro',plan==='pro')}
+  if(logout)logout.hidden=!email;
+  if(proBtn){proBtn.textContent=plan==='pro'?'PRO ACTIVE':'Get Pro';proBtn.classList.toggle('is-pro',plan==='pro')}
+}
+async function signOut(){
+  try{if(supabaseClient)await supabaseClient.auth.signOut()}catch(e){console.warn('Sign out failed',e)}
+  authSession=null;walletState.address=null;walletState.chainId=null;walletState.name=null;
+  renderAuth();renderWallet();toast('Signed out');
 }
 function setAuthMode(mode){
   authMode=mode;
