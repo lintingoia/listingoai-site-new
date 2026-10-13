@@ -103,7 +103,44 @@ body:after{content:"";position:fixed;inset:-20%;pointer-events:none;z-index:-1;o
 .btn-logout:hover{border-color:rgba(255,109,120,.35);background:rgba(255,109,120,.08);color:#fff}
 #navProBtn.is-pro{border-color:rgba(168,140,255,.3);background:linear-gradient(90deg,rgba(168,140,255,.16),rgba(255,158,82,.13));color:#fff;box-shadow:0 0 24px rgba(168,140,255,.1)}
 @media(max-width:1100px){.navright .btn-logout{display:none}.plan-badge{display:none}}
-</style></head>
+</style><style id="listingoai-terminal-upgrade">
+:root{--max:1560px}
+body{font-size:15px}
+.wrap{width:min(var(--max),calc(100% - 54px))}
+.top{background:rgba(2,5,4,.84)}
+.nav{height:82px}.brand{font-size:23px}.navpill a{font-size:13px;padding:11px 15px}
+.navright{gap:9px}.navright .btn,.btn{height:46px;padding:0 18px;font-size:13px}
+.kicker{font-size:11px}.tiny{font-size:10px}.hero{padding:34px 0 24px}
+.hero h1{font-size:66px}.hero p{font-size:15px;max-width:860px}
+.hero-card{padding:22px}.hero-card h3{font-size:17px}.hero-card p{font-size:12px}
+.kpi{padding:18px 20px}.kpi small{font-size:11px}.kpi strong{font-size:25px}.kpi .sub{font-size:11px}
+.grid{grid-template-columns:248px minmax(0,1fr) 360px;gap:17px}
+.panel-head{padding:15px 17px}.panel-head strong{font-size:14px}.field{padding:13px}.field small{font-size:10px}.field b{font-size:13px}
+.mover{padding:11px 0}.asset b{font-size:12px}.asset small{font-size:10px}.pct{font-size:11px}.coin{width:31px;height:31px;font-size:10px}
+.chart-top{padding:18px}.pair b{font-size:17px}.pair .price{font-size:29px}.muted{font-size:12px}.chart-meta{font-size:11px}.chartbox{height:430px}
+.axis{font-size:10px}.chart-foot{padding:10px 17px;font-size:10px}
+.market-table th,.market-table td{padding:13px 15px;font-size:12px}.market-table th{font-size:10px}.market-name b{font-size:12px}.market-name small{font-size:10px}
+.ai-card{min-height:300px}.ai-body{padding:15px}.question{font-size:12px}.answer{font-size:12px}.copilot input{font-size:11px}
+.headrow strong{font-size:14px}.scorecopy b{font-size:13px}.scorecopy p{font-size:11px}.insight{font-size:11px}
+.research-inner{padding:25px}.research-head h2{font-size:37px}.research-head p{font-size:13px}
+.wallet-wrap{padding-top:24px}.wallet-card{padding:20px}.wallet-head strong{font-size:15px}.wallet-main b{font-size:13px}.wallet-main span{font-size:11px}.wallet-balance strong{font-size:24px}.wallet-note{font-size:11px}
+.wallet-actions{grid-template-columns:repeat(3,1fr)}
+.fund-steps{grid-template-columns:repeat(4,1fr)}
+.modal-card{width:min(640px,100%);padding:26px}.modal-head h3{font-size:26px}.modal-sub{font-size:13px}
+.funding-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}
+.funding-choice{padding:15px;border:1px solid var(--line2);border-radius:12px;background:rgba(255,255,255,.018);text-align:left;cursor:pointer}
+.funding-choice strong{display:block;font-size:13px}.funding-choice small{display:block;color:#6e847c;font-size:10px;line-height:1.45;margin-top:4px}
+.funding-choice:hover{border-color:rgba(168,140,255,.32);background:linear-gradient(180deg,rgba(168,140,255,.08),rgba(255,158,82,.03))}
+.funding-panel{margin-top:14px;padding:14px;border:1px solid rgba(255,158,82,.16);border-radius:12px;background:linear-gradient(180deg,rgba(255,158,82,.05),rgba(168,140,255,.03))}
+.funding-panel h4{margin:0 0 5px;font-size:13px}.funding-panel p{margin:0;color:#80958d;font-size:10px;line-height:1.55}
+.address-box{display:flex;gap:8px;margin-top:10px}.address-box code{flex:1;display:block;overflow:auto;padding:10px;border:1px solid var(--line2);border-radius:9px;background:#050d09;color:#c5d8cf;font-size:10px;white-space:nowrap}.address-box button{height:38px}
+.compliance-note{margin-top:12px;padding:10px 11px;border:1px solid rgba(115,220,255,.12);border-radius:9px;background:rgba(115,220,255,.025);color:#71877f;font-size:9px;line-height:1.55}
+.fee-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:9px}.fee-row{padding:9px;border:1px solid var(--line2);border-radius:9px}.fee-row small{display:block;color:#637971;font-size:8px}.fee-row b{display:block;font-size:11px;margin-top:3px}
+@media(max-width:1180px){.grid{grid-template-columns:220px minmax(0,1fr) 330px}.hero h1{font-size:56px}.fund-steps{grid-template-columns:1fr 1fr}}
+@media(max-width:960px){.wrap{width:min(var(--max),calc(100% - 34px))}.hero h1{font-size:48px}.wallet-actions{grid-template-columns:1fr 1fr}.funding-grid{grid-template-columns:1fr}}
+@media(max-width:680px){.wrap{width:calc(100% - 18px)}.nav{height:68px}.brand{font-size:20px}.hero h1{font-size:40px}.hero p{font-size:13px}.chartbox{height:320px}.wallet-actions,.fund-steps{grid-template-columns:1fr}.navright .btn{display:none}.wallet-main{flex-wrap:wrap}.funding-grid{grid-template-columns:1fr}}
+</style>
+</head>
 <body>
 <header class="top">
   <div class="wrap nav">
@@ -228,25 +265,42 @@ body:after{content:"";position:fixed;inset:-20%;pointer-events:none;z-index:-1;o
   </section>
 
   <section class="wallet-wrap" id="wallet">
-    <div class="sectionhead"><div><div class="kicker">Wallet infrastructure</div><h2>Your keys stay with your wallet.</h2></div><p>ListingoAI connects to external wallets without taking custody. Embedded wallet creation is kept as the next onboarding layer.</p></div>
-    <div class="wallet-grid">
-      <article class="glass wallet-card">
-        <div class="wallet-head"><div><strong>Wallet</strong><span class="tiny" id="walletMode">No wallet connected</span></div><span class="wallet-dot" id="walletDot"></span></div>
-        <div class="wallet-main"><div class="wallet-mark">◎</div><div><small>Connected address</small><b id="walletAddress">Not connected</b><span id="walletNetwork">—</span></div></div>
-        <div class="wallet-balance"><small>Native balance</small><strong id="walletBalance">—</strong></div>
-        <div class="wallet-actions"><button class="btn btn-green" onclick="openWalletModal()">Connect wallet</button><button class="btn" onclick="handleBuy()">Buy selected coin</button></div>
-        <div class="wallet-note">We never ask for a seed phrase or private key. Buying and settlement are handled by the wallet or a later compliant execution layer.</div>
-      </article>
-      <article class="glass wallet-card">
-        <div class="wallet-head"><div><strong>Funding path</strong><span class="tiny">Execution-ready</span></div><span class="tiny">EVM first</span></div>
-        <div class="fund-steps"><div><span>01</span><b>Create account</b><small>Supabase Auth</small></div><div><span>02</span><b>Connect / create wallet</b><small>External or embedded</small></div><div><span>03</span><b>Fund wallet</b><small>Crypto or on-ramp</small></div><div><span>04</span><b>Buy & hold</b><small>Execution layer</small></div></div>
-        <button class="btn" style="width:100%;margin-top:10px" onclick="toast('Wallet connection is live. Embedded wallet + on-ramp is the next execution layer.')">View wallet flow</button>
-      </article>
-    </div>
-  </section>
+  <div class="sectionhead">
+    <div><div class="kicker">Wallet & Funding</div><h2>One account. One wallet. Clear money movement.</h2></div>
+    <p>Connect your own wallet today. Funding, custody and execution are separated so we can add regulated exchange rails without hiding how money moves.</p>
+  </div>
+  <div class="wallet-grid">
+    <article class="glass wallet-card">
+      <div class="wallet-head"><div><strong>My Wallet</strong><span class="tiny" id="walletMode">No wallet connected</span></div><span class="wallet-dot" id="walletDot"></span></div>
+      <div class="wallet-main"><div class="wallet-mark">◎</div><div><small>Connected address</small><b id="walletAddress">Not connected</b><span id="walletNetwork">—</span></div></div>
+      <div class="wallet-balance"><small>Native balance</small><strong id="walletBalance">—</strong></div>
+      <div class="wallet-actions">
+        <button class="btn btn-green" onclick="openWalletModal()">Connect wallet</button>
+        <button class="btn" onclick="openFundingModal('crypto')">Deposit</button>
+        <button class="btn" onclick="handleBuy()">Buy crypto</button>
+      </div>
+      <div class="wallet-note">No seed phrase or private key is collected. Until a regulated custody/execution rail is connected, this wallet remains self-custody.</div>
+    </article>
 
-  <section class="lower" id="portfolio">
-    <div class="sectionhead"><div><div class="kicker">Premium workspace</div><h2>Track. Compare. Manage risk.</h2></div><p>The visual system stays dense and premium while the numbers now come from the real market feed instead of static demo values.</p></div>
+    <article class="glass wallet-card">
+      <div class="wallet-head"><div><strong>Funding Center</strong><span class="tiny">Choose a funding rail</span></div><span class="tiny">EVM first</span></div>
+      <div class="fund-steps">
+        <div><span>01</span><b>Account</b><small>Supabase Auth</small></div>
+        <div><span>02</span><b>Wallet</b><small>External today · embedded next</small></div>
+        <div><span>03</span><b>Funding</b><small>Crypto · card · bank</small></div>
+        <div><span>04</span><b>Trade</b><small>Transparent fee before confirm</small></div>
+      </div>
+      <button class="btn" style="width:100%;margin-top:12px" onclick="openFundingModal()">Open Funding Center</button>
+      <div class="fee-grid">
+        <div class="fee-row"><small>Trading commission</small><b>Shown before execution</b></div>
+        <div class="fee-row"><small>Withdrawal fee</small><b>Network / provider cost</b></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="lower" id="portfolio">
+    <div class="sectionhead"><div><div class="kicker">Premium workspace</div><h2>Track. Compare. Manage risk.</h2></div><p>The visual system stays dense and premium while live data, wallet infrastructure and future execution rails share one account layer.</p></div>
     <div class="workspace">
       <article class="glass wcard"><div class="whead"><strong>Portfolio performance</strong><span class="tiny">UI shell</span></div><div class="mini"><svg viewBox="0 0 430 110" preserveAspectRatio="none"><defs><linearGradient id="miniFill" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#73dcff" stop-opacity=".22"/><stop offset="1" stop-color="#73dcff" stop-opacity="0"/></linearGradient></defs><path d="M0 86 39 79 77 83 121 62 158 69 205 46 246 55 286 30 329 39 376 18 430 8 L430 110 L0 110 Z" fill="url(#miniFill)"/><polyline points="0,86 39,79 77,83 121,62 158,69 205,46 246,55 286,30 329,39 376,18 430,8" fill="none" stroke="#73dcff" stroke-width="3"/></svg></div><div class="legendrow"><div><small>BTC</small><b>—</b></div><div><small>ETH</small><b>—</b></div><div><small>USDC</small><b>—</b></div><div><small>Other</small><b>—</b></div></div></article>
       <article class="glass wcard"><div class="whead"><strong>Portfolio allocation</strong><span class="tiny">Account layer</span></div><div style="padding-top:11px;color:#71877e;font-size:9px">Supabase portfolio tables are ready. This card will read user-owned balances after authentication is connected.</div><div class="pro" style="margin-top:12px"><div><div class="kicker">NEXT</div><h3 style="font-size:15px">Authenticated portfolio</h3><p>Watchlist, balances, risk score and alerts.</p></div></div></article>
@@ -257,8 +311,18 @@ body:after{content:"";position:fixed;inset:-20%;pointer-events:none;z-index:-1;o
 </div>
 </main>
 
-<footer><div class="wrap footerrow"><div>© 2026 <b>ListingoAI</b> · Crypto Data. AI Analysis. Trading.</div><div>Free live market data via Binance Spot Public API · <span id="footerMode">public market data</span></div></div></footer>
+<footer><div class="wrap footerrow"><div>© 2026 <b>ListingoAI</b> · Crypto Data. AI Analysis. Trading.</div><div>Free live market data via Binance Spot Public API · <span id="footerMode">public market data · self-custody mode</span></div></div></footer>
 <div class="modal-backdrop" id="walletModal" aria-hidden="true"><div class="modal-card glass"><div class="modal-head"><div><div class="kicker">Wallet</div><h3 id="walletModalTitle">Connect your wallet</h3></div><button class="ghost" onclick="closeWalletModal()">✕</button></div><p class="modal-sub" id="walletModalSub">Choose a wallet detected by your browser. ListingoAI never asks for your seed phrase.</p><div id="walletChoices" class="wallet-choices"></div></div></div>
+<div class="modal-backdrop" id="fundingModal" aria-hidden="true"><div class="modal-card glass">
+  <div class="modal-head"><div><div class="kicker">Funding Center</div><h3 id="fundingModalTitle">Add funds</h3></div><button class="ghost" onclick="closeFundingModal()">✕</button></div>
+  <p class="modal-sub" id="fundingModalSub">Choose how you want to fund the account.</p>
+  <div class="funding-grid">
+    <button class="funding-choice" onclick="showFundingPanel('crypto')"><strong>Crypto deposit</strong><small>Use a wallet to move supported assets onchain.</small></button>
+    <button class="funding-choice" onclick="showFundingPanel('card')"><strong>Card / Apple Pay</strong><small>On-ramp rail prepared for a regulated provider.</small></button>
+    <button class="funding-choice" onclick="showFundingPanel('bank')"><strong>Bank transfer</strong><small>EU banking rail prepared for a regulated provider.</small></button>
+  </div>
+  <div id="fundingPanel" class="funding-panel"><h4>Crypto deposit</h4><p id="fundingPanelText">Connect a wallet first. Your self-custody wallet address can be copied for wallet-to-wallet transfers. Exchange custody deposits will be enabled only after the custody/regulated execution rail is live.</p></div>
+</div></div>
 <div class="modal-backdrop" id="authModal" aria-hidden="true"><div class="modal-card glass">
   <div class="modal-head"><div><div class="kicker">ListingoAI account</div><h3 id="authModalTitle">Join ListingoAI</h3></div><button class="ghost" onclick="closeAuthModal()">✕</button></div>
   <p class="modal-sub" id="authModalSub">Create an account to save your wallet, watchlist and portfolio across devices.</p>
@@ -506,13 +570,53 @@ async function connectWallet(index=0){
     await renderWallet();closeWalletModal();toast(walletState.name+' connected');
   }catch{toast('Wallet connection cancelled or unavailable.')}
 }
-async function renderWallet(){
-  const a=walletState.address;document.getElementById('walletAddress').textContent=shortAddress(a);document.getElementById('walletMode').textContent=a?(walletState.name||'EVM wallet'):'No wallet connected';document.getElementById('walletNetwork').textContent=a?chainLabel(walletState.chainId):'—';document.getElementById('walletDot').classList.toggle('on',!!a);const btn=document.getElementById('navWalletBtn');if(btn)btn.textContent=a?shortAddress(a):'Connect Wallet';
-  const bal=document.getElementById('walletBalance');if(!a||!walletState.provider){bal.textContent='—';return}
-  try{const raw=await walletState.provider.request({method:'eth_getBalance',params:[a,'latest']});const native=Number(BigInt(raw))/1e18;bal.textContent=native.toFixed(5)+' native'}catch{bal.textContent='—'}
+async async function renderWallet(){
+  const a=walletState.address;
+  const addr=document.getElementById('walletAddress'); if(addr)addr.textContent=shortAddress(a);
+  const mode=document.getElementById('walletMode'); if(mode)mode.textContent=a?(walletState.name||'EVM wallet'):'No wallet connected';
+  const net=document.getElementById('walletNetwork'); if(net)net.textContent=a?chainLabel(walletState.chainId):'—';
+  const dot=document.getElementById('walletDot'); if(dot)dot.classList.toggle('on',!!a);
+  const btn=document.getElementById('navWalletBtn'); if(btn)btn.textContent=a?shortAddress(a):'Connect Wallet';
+  const bal=document.getElementById('walletBalance');
+  if(!a||!walletState.provider){if(bal)bal.textContent='—';return}
+  try{
+    const raw=await walletState.provider.request({method:'eth_getBalance',params:[a,'latest']});
+    const native=Number(BigInt(raw))/1e18;
+    if(bal)bal.textContent=native.toFixed(5)+' native';
+  }catch{if(bal)bal.textContent='—'}
 }
 function openWalletModal(){renderWalletChoices();document.getElementById('walletModal')?.classList.add('show');document.getElementById('walletModal')?.setAttribute('aria-hidden','false')}
 function closeWalletModal(){document.getElementById('walletModal')?.classList.remove('show');document.getElementById('walletModal')?.setAttribute('aria-hidden','true')}
+function openFundingModal(mode){
+  const modal=document.getElementById('fundingModal');if(!modal)return;
+  modal.classList.add('show');modal.setAttribute('aria-hidden','false');
+  showFundingPanel(mode||'crypto');
+}
+function closeFundingModal(){const m=document.getElementById('fundingModal');if(m){m.classList.remove('show');m.setAttribute('aria-hidden','true')}}
+function showFundingPanel(mode){
+  const title=document.getElementById('fundingModalTitle'),sub=document.getElementById('fundingModalSub'),panel=document.getElementById('fundingPanel'),text=document.getElementById('fundingPanelText');
+  const a=walletState.address;
+  if(mode==='crypto'){
+    title.textContent='Crypto deposit';sub.textContent='Move supported crypto from a wallet you control.';
+    panel.querySelector('h4').textContent='Self-custody crypto deposit';
+    if(a){
+      text.innerHTML='Connected wallet: <b>'+shortAddress(a)+'</b> · '+(chainLabel(walletState.chainId)||'EVM')+'. Copy the full address below for wallet-to-wallet transfers.';
+      panel.innerHTML='<h4>Self-custody deposit address</h4><p id="fundingPanelText">Your connected wallet address is below. Sending crypto here keeps control with your wallet; it does not create a custodial ListingoAI exchange balance.</p><div class="address-box"><code id="fundingAddress">'+a+'</code><button class="btn btn-green" onclick="copyFundingAddress()">Copy</button></div><div class="compliance-note">Exchange custody deposits, bank/card funding and settlement will be activated only after the regulated custody/payment/execution layer is connected. No funds are held by ListingoAI in this mode.</div>';
+    }else{
+      text.textContent='Connect a wallet first. We will show your address and funding instructions here. No seed phrase or private key is ever requested.';
+    }
+  }else if(mode==='card'){
+    title.textContent='Card / Apple Pay';sub.textContent='Fiat on-ramp preparation';
+    panel.innerHTML='<h4>On-ramp rail</h4><p>Card funding is reserved for a compliant on-ramp provider. The provider will handle payment processing and required identity checks; ListingoAI will display the quote, fee and final amount before confirmation.</p><div class="compliance-note">Provider integration is intentionally not faked. The button will activate when the chosen regulated on-ramp is configured for the Ireland / EU launch.</div>';
+  }else{
+    title.textContent='Bank transfer';sub.textContent='EU funding rail preparation';
+    panel.innerHTML='<h4>Bank transfer</h4><p>SEPA/EU bank funding will be connected through an approved payment or banking partner. Deposit instructions will be account-specific and visible only after that rail is live.</p><div class="compliance-note">No placeholder IBAN or fake deposit details are shown. This prevents users from sending money to an address that is not operational.</div>';
+  }
+}
+async function copyFundingAddress(){
+  const el=document.getElementById('fundingAddress');if(!el)return;
+  try{await navigator.clipboard.writeText(el.textContent);toast('Wallet address copied')}catch{toast('Copy unavailable — select the address manually')}
+}
 function handleBuy(){
   const c=state.selected||state.coins.find(x=>x.symbol==='BTC');if(!c)return;
   if(!walletState.address){openWalletModal();document.getElementById('walletModalTitle').textContent='Connect wallet before buying';document.getElementById('walletModalSub').textContent='ListingoAI can connect your own wallet without taking custody. The execution/on-ramp step remains separated from the market-data layer.';return}
@@ -531,6 +635,7 @@ function sendResearch(){
   const c=state.selected||state.coins[0];const reply=document.createElement('div');reply.className='msg ai';reply.innerHTML='<span class="label">ListingoAI · live data brief</span><div>'+(c?('<b>'+(c.symbol||'').toUpperCase()+'</b>: 24h '+fmtPct(c.change24h)+', 7d '+fmtPct(c.change7d)+', volume '+fmtUSD(c.volume24hUsd)+'. This is a data brief, not a personalized investment recommendation.'): 'Live feed has not returned data yet.')+'</div>';t.appendChild(reply);input.value='';t.scrollTop=t.scrollHeight}
 loadMarkets();setInterval(loadMarkets,120000);
 document.getElementById('walletModal')?.addEventListener('click',e=>{if(e.target.id==='walletModal')closeWalletModal()});
+document.getElementById('fundingModal')?.addEventListener('click',e=>{if(e.target.id==='fundingModal')closeFundingModal()});
 document.getElementById('authModal')?.addEventListener('click',e=>{if(e.target.id==='authModal')closeAuthModal()});
 </script>
 </body>
